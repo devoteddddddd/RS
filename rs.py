@@ -9,11 +9,12 @@ if user_id:
 
     @st.cache(hash_funcs={"MyUnhashableClass": lambda _: None}, allow_output_mutation=True)
     def load():
-        return np.load("predicts.npy"), np.load("user_sim_matrix_all.npy"), pd.read_csv('Processed_Item_Info.csv'), pd.read_csv('Processed_User_Info.csv'), pd.read_csv('Rules.csv')
+        rules = pd.read_csv('Rules.csv')
+        rules['antecedents'] = rules['antecedents'].map(eval)
+        rules['consequents'] = rules['consequents'].map(eval)
+        return np.load("predicts.npy"), np.load("user_sim_matrix_all.npy"), pd.read_csv('Processed_Item_Info.csv'), pd.read_csv('Processed_User_Info.csv'), rules
 
     predicts, user_sim_matrix_all, df_meta_GC_3, df_GC_5, rules = load()
-    rules['antecedents'] = rules['antecedents'].map(eval)
-    rules['consequents'] = rules['consequents'].map(eval)
 
     sortedResult = predicts[:, int(user_id)].argsort()[::-1]
 
@@ -21,7 +22,7 @@ if user_id:
     # 向该用户推荐评分最高的20部电影
     idx = 0  # 保存已经推荐了多少部电影
     st.write()
-    st.write('为该用户推荐的评分最高的20个Gift Card商品是'.center(80, '='))
+    st.write('为该用户推荐的评分最高的20个Gift Card商品是:')
 
     reco_item_list = []
     for i in sortedResult:
@@ -47,7 +48,7 @@ if user_id:
                 if num_idx == num: break
 
     st.write()
-    st.write('此外，您可能感兴趣的用户有：'.center(80, '='))
+    st.write('此外，您可能感兴趣的用户有:')
     sortedResult = user_sim_matrix_all[:, int(user_id)].argsort()[::-1]
 
     recommended_user_num = 10
