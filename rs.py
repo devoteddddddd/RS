@@ -3,9 +3,9 @@ import pandas as pd
 import numpy as np
 
 
-text_input = st.text_input( "您要向哪位用户进行推荐？请输入用户编号(0-999)： 👇")
+user_id = st.text_input( "您要向哪位用户进行推荐？请输入用户编号(0-999)： 👇")
 
-if text_input:
+if user_id:
 
     @st.cache(hash_funcs={"MyUnhashableClass": lambda _: None}, allow_output_mutation=True)
     def load():
