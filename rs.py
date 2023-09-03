@@ -1,9 +1,8 @@
 import streamlit as st
-import tensorflow as tf
 
+text_input = st.text_input( "Enter some text 👇")
 
-a=tf.constant([1,5],dtype=tf.int64)
-
-st.write('The current movie title is', a)
+if text_input:
+    st.write("You entered: ", text_input)
 
 
