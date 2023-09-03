@@ -39,7 +39,8 @@ if user_id:
         for j in range(rules.shape[0]):
             if item in rules['antecedents'][j]:
                 st.write('根据关联规则分析')
-                st.write('对于商品', item, '您可以进一步购买', rules['consequents'][j])
+                s = "、".join(rules['consequents'][j])
+                st.write('对于商品', item, '您可以进一步购买: ', s)
                 st.write('Support:', rules['support'][j])
                 st.write('Confidence:', rules['confidence'][j])
                 st.write('Lift:', rules['lift'][j])
