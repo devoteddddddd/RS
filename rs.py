@@ -44,7 +44,7 @@ if user_id:
             if idx == recommended_num: break
 
 
-        num = 5
+        num = 10
         num_idx = 0
         for item in reco_item_list:
             for j in range(rules.shape[0]):
