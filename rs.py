@@ -6,6 +6,10 @@ from PIL import Image
 st.set_page_config(layout="wide")
 
 user_id = st.text_input( "您要向哪位用户进行推荐？请输入用户编号(0-999)： 👇")
+s = '[aaaaa]'
+ss = ':orange'
+sss = ss + s
+st.markdown(sss)
 
 if user_id:
     col1, col2, col3 = st.columns(3)
@@ -31,7 +35,7 @@ if user_id:
         reco_item_list = []
         for i in sortedResult:
             reco_item = df_meta_GC_3.iloc[i]['asin']
-            st.write('预测评分：%.2f, 商品ID：%s' % (predicts[i, int(user_id)], reco_item))
+            st.markdown('预测评分: %.2f,  商品ID: %s' % (predicts[i, int(user_id)], reco_item))
 
             if (reco_item not in img_list):
                 img_list.append(reco_item)
@@ -76,7 +80,7 @@ if user_id:
         idx2 = 0
 
         for i in sortedResult:
-            st.write('相似度：%.2f, 用户ID：%s' % (user_sim_matrix_all[i, int(user_id)], df_GC_5.iloc[i]['reviewerID']))
+            st.write('相似度: %.2f,  用户ID: %s' % (user_sim_matrix_all[i, int(user_id)], df_GC_5.iloc[i]['reviewerID']))
             idx2 += 1
             if idx2 == recommended_user_num: break
 
