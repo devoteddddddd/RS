@@ -22,7 +22,7 @@ if user_id:
     
     idx = 0  # 保存已经推荐了多少部电影
     st.write()
-    st.write('为该用户推荐的评分最高的20个Gift Card商品是:')
+    st.markdown('### 为该用户推荐的评分最高的20个Gift Card商品是:')
 
     reco_item_list = []
     for i in sortedResult:
@@ -43,7 +43,7 @@ if user_id:
         for j in range(rules.shape[0]):
             if item in rules['antecedents'][j]:
                 rule_list = rules['antecedents'][j]
-                st.write('根据关联规则分析')
+                st.markdown('### 根据关联规则分析')
                 s = "、".join(rule_list)
                 st.write('对于商品', item, '您可以进一步购买: ', s)
                 for rule_item in rule_list:
@@ -61,7 +61,7 @@ if user_id:
                 if num_idx == num: break
 
     st.write()
-    st.write('此外，您可能感兴趣的用户有:')
+    st.markdown('### 此外，您可能感兴趣的用户有:')
     sortedResult = user_sim_matrix_all[:, int(user_id)].argsort()[::-1]
 
     recommended_user_num = 10
