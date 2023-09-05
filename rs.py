@@ -32,7 +32,9 @@ if user_id:
         for i in sortedResult:
             reco_item = df_meta_GC_3.iloc[i]['asin']
             st.write('预测评分：%.2f, 商品ID：%s' % (predicts[i, int(user_id)], reco_item))
-            img_list.append(reco_item)
+
+            if (reco_item not in img_list):
+                img_list.append(reco_item)
             #img_path = "./images/" + reco_item + ".jpg"
             #img = Image.open(img_path)
             #cap = "商品ID: " + reco_item
@@ -52,7 +54,8 @@ if user_id:
                     s = "、".join(rule_list)
                     st.write('对于商品', item, '您可以进一步购买: ', s)
                     for rule_item in rule_list:
-                        img_list.append(rule_item)
+                        if (rule_item not in img_list):
+                            img_list.append(rule_item)
                         #img_path = "./images/" + rule_item + ".jpg"
                         #img = Image.open(img_path)
                         #cap = "商品ID: " + reco_item
