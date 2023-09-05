@@ -3,6 +3,8 @@ import pandas as pd
 import numpy as np
 from PIL import Image
 
+st.set_page_config(layout="wide")
+
 user_id = st.text_input( "您要向哪位用户进行推荐？请输入用户编号(0-999)： 👇")
 
 if user_id:
