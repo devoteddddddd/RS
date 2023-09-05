@@ -76,7 +76,7 @@ if user_id:
         idx2 = 0
 
         for i in sortedResult:
-            st.write('相似度: %.2f,  用户ID: %s' % (user_sim_matrix_all[i, int(user_id)], df_GC_5.iloc[i]['reviewerID']))
+            st.write('相似度: :orange[%.2f],  用户ID: :violet[%s]' % (user_sim_matrix_all[i, int(user_id)], df_GC_5.iloc[i]['reviewerID']))
             idx2 += 1
             if idx2 == recommended_user_num: break
 
