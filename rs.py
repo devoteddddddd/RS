@@ -76,7 +76,7 @@ if user_id:
             if idx2 == recommended_user_num: break
 
     n = len(img_list)
-    n1 = n / 2
+    n1 = int(n / 2)
     n2 = n1 + 1
 
     with col2:
