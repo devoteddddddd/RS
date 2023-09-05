@@ -31,7 +31,7 @@ if user_id:
         img_path = "./images/" + reco_item + ".jpg"
         img = Image.open(img_path)
         cap = "商品ID: " + reco_item
-        st.image(img, caption=cap, width=30)
+        st.image(img, caption=cap, width=200)
         reco_item_list.append(reco_item)
         idx += 1
         if idx == recommended_num: break
@@ -50,7 +50,7 @@ if user_id:
                     img_path = "./images/" + rule_item + ".jpg"
                     img = Image.open(img_path)
                     cap = "商品ID: " + reco_item
-                    st.image(img, caption=cap, width=30)
+                    st.image(img, caption=cap, width=200)
 
 
                 st.write('Support:', rules['support'][j])
