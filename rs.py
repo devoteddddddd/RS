@@ -49,7 +49,7 @@ if user_id:
         for item in reco_item_list:
             for j in range(rules.shape[0]):
                 if item in rules['antecedents'][j]:
-                    rule_list = rules['antecedents'][j]
+                    rule_list = rules['consequents'][j]
                     st.markdown('#### 根据关联规则分析')
                     s = "、".join(rule_list)
                     st.write('对于商品:blue[', item, ']', '您可以进一步购买: :blue[', s, ']')
