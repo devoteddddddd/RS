@@ -6,10 +6,6 @@ from PIL import Image
 st.set_page_config(layout="wide")
 
 user_id = st.text_input( "您要向哪位用户进行推荐？请输入用户编号(0-999)： 👇")
-s = '[aaaaa]'
-ss = ':orange'
-sss = ss + s
-st.markdown(sss)
 
 if user_id:
     col1, col2, col3 = st.columns(3)
@@ -56,7 +52,7 @@ if user_id:
                     rule_list = rules['antecedents'][j]
                     st.markdown('#### 根据关联规则分析')
                     s = "、".join(rule_list)
-                    st.write('对于商品', item, '您可以进一步购买: ', s)
+                    st.write('对于商品:blue[', item, ']', '您可以进一步购买: :blue[', s, ']')
                     for rule_item in rule_list:
                         if (rule_item not in img_list):
                             img_list.append(rule_item)
