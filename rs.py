@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 from PIL import Image
 
-user_id = st.text_input( "您要向哪位用户进行推荐？请输入用户编号(0-999)： 👇")
+user_id = st.text_input( "### 您要向哪位用户进行推荐？请输入用户编号(0-999)： 👇")
 
 if user_id:
 
