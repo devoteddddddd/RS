@@ -35,7 +35,7 @@ if user_id:
         reco_item_list = []
         for i in sortedResult:
             reco_item = df_meta_GC_3.iloc[i]['asin']
-            st.markdown('预测评分: %.2f,  商品ID: %s' % (predicts[i, int(user_id)], reco_item))
+            st.markdown('预测评分: :orange[%.2f],  商品ID: :blue[%s]' % (predicts[i, int(user_id)], reco_item))
 
             if (reco_item not in img_list):
                 img_list.append(reco_item)
