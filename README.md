@@ -10,4 +10,4 @@
 **Model deployment and Web APP development:**   rs.py
 
 You can use our APP by visiting this link: 
-[https://devoteddddddd-rs-rs-zyvmvc.streamlit.app/] (https://devoteddddddd-rs-rs-zyvmvc.streamlit.app/)
+https://devoteddddddd-rs-rs-zyvmvc.streamlit.app/
